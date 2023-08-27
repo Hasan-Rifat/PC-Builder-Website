@@ -1,9 +1,13 @@
+import { signIn, useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <header>
       <div className="max-w-screen-xl mx-auto">
@@ -43,30 +47,49 @@ const Header: React.FC<HeaderProps> = () => {
                 </li>
               </ul>
             </div>
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
+            {session ? (
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <div className="justify-between">
+                      <Image
+                        src={session?.user?.image || ""}
+                        height={50}
+                        width={50}
+                        alt="profile picture"
+                      />
+                    </div>
+                  </li>
+                  <li>
+                    <a>{session?.user?.name}</a>
+                  </li>
+                  <li>
+                    <button onClick={() => signOut()}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <div className="dropdown dropdown-end">
+                <button
+                  className="uppercase"
+                  onClick={() =>
+                    signIn("github", {
+                      callbackUrl: "http://localhost:3000/",
+                    })
+                  }
+                >
+                  Login
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

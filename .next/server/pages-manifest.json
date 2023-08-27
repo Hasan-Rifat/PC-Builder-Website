@@ -1,15 +1,16 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/api/categories/[id]": "pages/api/categories/[id].js",
+  "/api/categories": "pages/api/categories.js",
   "/api/hello": "pages/api/hello.js",
-  "/api/products": "pages/api/products.js",
+  "/_document": "pages/_document.js",
   "/api/products/[id]": "pages/api/products/[id].js",
+  "/api/products": "pages/api/products.js",
   "/categories/[slug]": "pages/categories/[slug].html",
   "/": "pages/index.html",
   "/pc-builder": "pages/pc-builder.html",
-  "/api/categories": "pages/api/categories.js",
   "/product-details/[id]": "pages/product-details/[id].html",
   "/404": "pages/404.html"
 }

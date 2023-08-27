@@ -79,6 +79,13 @@ const routeModule = new PagesRouteModule({
 
 /***/ }),
 
+/***/ 1649:
+/***/ ((module) => {
+
+module.exports = require("next-auth/react");
+
+/***/ }),
+
 /***/ 3076:
 /***/ ((module) => {
 
