@@ -82,7 +82,8 @@ const Header: React.FC<HeaderProps> = () => {
                   className="uppercase"
                   onClick={() =>
                     signIn("github", {
-                      callbackUrl: "http://localhost:3000/",
+                      callbackUrl:
+                        "https://pc-builder-website-kappa.vercel.app/",
                     })
                   }
                 >
