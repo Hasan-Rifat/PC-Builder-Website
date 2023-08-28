@@ -11,25 +11,21 @@ export default async function handler(
 ) {
   await connectDB();
   if (req.method === "GET") {
-    const result: IProducts[] = await Products.find();
+    const { category } = req.query; // Assuming your query parameter is named "id"
+
+    let query = {};
+
+    if (category) {
+      query = {
+        category: { $regex: category, $options: "i" },
+      };
+    }
+
+    const result: IProducts[] = await Products.find(query);
     res.status(200).json({
       success: true,
       message: "Get all products successfully",
       data: result,
-    });
-  } else if (req.method === "POST") {
-    const { name, price, quantity, description, category } = req.body;
-    const product = await Products.create({
-      name,
-      price,
-      quantity,
-      description,
-      category,
-    });
-    res.status(200).json({
-      success: true,
-      message: "Create product successfully",
-      data: product,
     });
   }
   res.status(404).json({

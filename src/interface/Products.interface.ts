@@ -7,7 +7,7 @@ interface KeyFeature {
 
 // Interface for the product document
 export type IProducts = {
-  id: number;
+  _id: string;
   image: string;
   productName: string;
   category: string;

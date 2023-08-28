@@ -26,6 +26,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "daisyui": "^3.6.3"
+    "daisyui": "^3.6.3",
+    "react-icons": "^4.10.1"
   }
 }
