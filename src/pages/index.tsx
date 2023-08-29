@@ -27,9 +27,9 @@ const Home: React.FC<HomeProps> & {
 };
 
 export async function getStaticProps() {
-  /*  if (typeof window === "undefined") {
+  if (typeof window === "undefined") {
     return { props: { data: [] } };
-  } */
+  }
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
   const data = await res.json();
   return {
