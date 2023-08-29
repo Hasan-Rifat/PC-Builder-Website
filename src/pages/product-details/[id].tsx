@@ -22,30 +22,17 @@ const ProductDetailsPage: React.FC<ProductDetailsPageProps> & {
 };
 
 export const getStaticPaths = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
-    const data = await res.json();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
+  const data = await res.json();
 
-    if (!Array.isArray(data)) {
-      // Check if data is not an array
-      throw new Error("Data is not an array");
-    }
+  const paths = data?.data?.map((category: IProducts) => ({
+    params: { id: category._id }, // Use 'id' as the parameter name
+  }));
 
-    const paths = data.map((category: IProducts) => ({
-      params: { id: category._id.toString() }, // Use 'id' as the parameter name
-    }));
-
-    return { paths, fallback: false };
-  } catch (error) {
-    console.error("Error fetching paths:", error);
-    return { paths: [], fallback: false };
-  }
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = async (context: { params: { id: string } }) => {
-  /*  if (typeof window === "undefined") {
-    return { props: { data: [] } };
-  } */
   try {
     const { params } = context;
     const res = await fetch(

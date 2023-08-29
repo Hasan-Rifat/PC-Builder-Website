@@ -81,29 +81,17 @@ const Categories = ({ data, slug })=>{
     });
 };
 const getStaticPaths = async ()=>{
-    try {
-        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products}`);
-        const data = await res.json();
-        if (!Array.isArray(data)) {
-            // Check if data is not an array
-            throw new Error("Data is not an array");
-        }
-        const paths = data.map((category)=>({
-                params: {
-                    slug: category._id.toString()
-                }
-            }));
-        return {
-            paths,
-            fallback: false
-        };
-    } catch (error) {
-        console.error("Error fetching paths:", error);
-        return {
-            paths: [],
-            fallback: false
-        };
-    }
+    const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products`);
+    const data = await res.json();
+    const paths = data?.data?.map((product)=>({
+            params: {
+                slug: product.category
+            }
+        }));
+    return {
+        paths,
+        fallback: false
+    };
 };
 const getStaticProps = async (context)=>{
     try {

@@ -214,34 +214,20 @@ const ProductDetailsPage = ({ data, id })=>{
     });
 };
 const getStaticPaths = async ()=>{
-    try {
-        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products`);
-        const data = await res.json();
-        if (!Array.isArray(data)) {
-            // Check if data is not an array
-            throw new Error("Data is not an array");
-        }
-        const paths = data.map((category)=>({
-                params: {
-                    id: category._id.toString()
-                }
-            }));
-        return {
-            paths,
-            fallback: false
-        };
-    } catch (error) {
-        console.error("Error fetching paths:", error);
-        return {
-            paths: [],
-            fallback: false
-        };
-    }
+    const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products`);
+    const data = await res.json();
+    const paths = data?.data?.map((category)=>({
+            params: {
+                id: category._id
+            }
+        }));
+    return {
+        paths,
+        fallback: false
+    };
 };
 const getStaticProps = async (context)=>{
-    /*  if (typeof window === "undefined") {
-    return { props: { data: [] } };
-  } */ try {
+    try {
         const { params } = context;
         const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products/${params.id}` // Use 'id' as the parameter
         );

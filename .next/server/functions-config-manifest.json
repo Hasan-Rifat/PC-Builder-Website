@@ -3,8 +3,8 @@
   "functions": {
     "/categories/[slug]": {},
     "/": {},
-    "/pc-builder": {},
     "/pc-builder/[slug]": {},
+    "/pc-builder": {},
     "/product-details/[id]": {}
   }
 }

@@ -1,6 +1,7 @@
 import Product from "@/components/UI/Products/Product";
 import MainLayout from "@/components/layouts/MainLayout";
 import { IProducts } from "@/interface/Products.interface";
+import { ICategories } from "@/interface/categoriesModel.interface";
 import { useRouter } from "next/router";
 
 type CategoriesProps = {
@@ -29,24 +30,13 @@ const Categories: React.FC<CategoriesProps> & {
 };
 
 export const getStaticPaths = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products}`);
-    const data = await res.json();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
+  const data = await res.json();
+  const paths = data?.data?.map((product: IProducts) => ({
+    params: { slug: product.category },
+  }));
 
-    if (!Array.isArray(data)) {
-      // Check if data is not an array
-      throw new Error("Data is not an array");
-    }
-
-    const paths = data.map((category: IProducts) => ({
-      params: { slug: category._id.toString() }, // Use 'id' as the parameter name
-    }));
-
-    return { paths, fallback: false };
-  } catch (error) {
-    console.error("Error fetching paths:", error);
-    return { paths: [], fallback: false };
-  }
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
