@@ -1,12 +1,27 @@
 import { IProducts } from "@/interface/Products.interface";
 import Image from "next/image";
 import Link from "next/link";
+import { useAppDispatch } from "../../../../Redux/hooks";
+import {
+  setCount,
+  setMonitor,
+  setMotherboard,
+  setOther,
+  setPowerSupplyUnit,
+  setProcessor,
+  setRam,
+  setStorageDevice,
+  setTotal,
+} from "../../../../Redux/features/pcBuilder/pcBuilderSlice";
+import { useRouter } from "next/router";
 
 type SelectProductProps = {
   product: IProducts;
+  slug: string;
 };
 
-const SelectProduct: React.FC<SelectProductProps> = ({ product }) => {
+const SelectProduct: React.FC<SelectProductProps> = ({ product, slug }) => {
+  const router = useRouter();
   const {
     _id,
     averageRating,
@@ -20,6 +35,57 @@ const SelectProduct: React.FC<SelectProductProps> = ({ product }) => {
     keyFeatures,
     reviews,
   } = product;
+
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = (product: IProducts, slug: string) => {
+    const id = product._id;
+    const name = product.productName;
+    const price = product.price;
+    const image = product.image;
+
+    switch (slug) {
+      case "Processor":
+        dispatch(setProcessor({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+
+        break;
+      case "Motherboard":
+        dispatch(setMotherboard({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      case "RAM":
+        dispatch(setRam({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      case "Power Supply Unit":
+        dispatch(setPowerSupplyUnit({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      case "Storage Device":
+        dispatch(setStorageDevice({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      case "Monitor":
+        dispatch(setMonitor({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      case "Others":
+        dispatch(setOther({ id, name, price, image }));
+        dispatch(setTotal(price));
+        dispatch(setCount());
+        break;
+      default:
+        break;
+    }
+    router.push("/pc-builder");
+  };
   return (
     <section className="text-gray-600 body-font overflow-hidden  shadow-[0px_4px_80px_rgba(0,0,0,0.4)] rounded-xl">
       <div className="">
@@ -91,7 +157,10 @@ const SelectProduct: React.FC<SelectProductProps> = ({ product }) => {
             </div>
           </div>
           <div>
-            <button className="bg-indigo-700 text-white px-5 py-2 rounded-lg">
+            <button
+              onClick={() => handleAddToCart(product, slug)}
+              className="bg-indigo-700 text-white px-5 py-2 rounded-lg"
+            >
               Add
             </button>
           </div>

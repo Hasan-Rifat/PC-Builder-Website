@@ -1,7 +1,6 @@
 import SelectProduct from "@/components/UI/Products/SelectProduct";
 import MainLayout from "@/components/layouts/MainLayout";
 import { IProducts } from "@/interface/Products.interface";
-import React from "react";
 
 type PcBuilderItemsProps = {
   data: {
@@ -18,7 +17,7 @@ const PcBuilderItems: React.FC<PcBuilderItemsProps> & {
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 gap-5 mt-10  pb-20">
           {data?.data?.map((product) => (
-            <SelectProduct key={product._id} product={product} />
+            <SelectProduct slug={slug} key={product._id} product={product} />
           ))}
         </div>
       </div>
@@ -33,11 +32,14 @@ PcBuilderItems.getLayout = function getLayout(page: React.ReactNode) {
 export async function getServerSideProps(context: {
   params: { slug: string };
 }) {
+  if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  }
   // Fetch data from external API
   try {
     const { slug } = context.params;
     const res = await fetch(
-      `http://localhost:3000/api/products?category=${slug}`
+      `${process.env.NEXT_PUBLIC_URL}/api/products?category=${slug}`
     );
     const data = await res.json();
     // Pass data to the page via props

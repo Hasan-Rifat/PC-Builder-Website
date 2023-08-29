@@ -23,7 +23,7 @@ const ProductDetailsPage: React.FC<ProductDetailsPageProps> & {
 
 export const getStaticPaths = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/products");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
     const data = await res.json();
 
     if (!Array.isArray(data)) {
@@ -44,9 +44,12 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: { params: { id: string } }) => {
   try {
+    if (typeof window === "undefined") {
+      return { props: { data: [] } };
+    }
     const { params } = context;
     const res = await fetch(
-      `http://localhost:3000/api/products/${params.id}` // Use 'id' as the parameter
+      `${process.env.NEXT_PUBLIC_URL}/api/products/${params.id}` // Use 'id' as the parameter
     );
     const data = await res.json();
 

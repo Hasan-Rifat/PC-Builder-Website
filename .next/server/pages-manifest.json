@@ -2,10 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/pc-builder": "pages/pc-builder.js",
-  "/pc-builder/[slug]": "pages/pc-builder/[slug].js",
   "/": "pages/index.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/api/categories": "pages/api/categories.js",
-  "/api/products": "pages/api/products.js"
+  "/api/products": "pages/api/products.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }

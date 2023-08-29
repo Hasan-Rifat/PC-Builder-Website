@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = () => {
                   className="uppercase"
                   onClick={() =>
                     signIn("github", {
-                      callbackUrl: "http://localhost:3000/",
+                      callbackUrl: `${process.env.NEXT_PUBLIC_URL}`,
                     })
                   }
                 >

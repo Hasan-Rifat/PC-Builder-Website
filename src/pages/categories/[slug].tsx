@@ -30,7 +30,7 @@ const Categories: React.FC<CategoriesProps> & {
 
 export const getStaticPaths = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/products");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products}`);
     const data = await res.json();
 
     if (!Array.isArray(data)) {
@@ -53,7 +53,7 @@ export const getStaticProps = async (context: { params: { slug: string } }) => {
   try {
     const { params } = context;
     const res = await fetch(
-      `http://localhost:3000/api/products?category=${params.slug}` // Use 'id' as the parameter
+      `${process.env.NEXT_PUBLIC_URL}/api/products?category=${params.slug}` // Use 'id' as the parameter
     );
     const data = await res.json();
 

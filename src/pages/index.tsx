@@ -16,17 +16,21 @@ type HomeProps = {
 const Home: React.FC<HomeProps> & {
   getLayout(page: React.ReactNode): JSX.Element;
 } = ({ data }) => {
+  console.log(`${process.env.NEXT_PUBLIC_URL}/api/products`);
   return (
     <>
       <Banner />
       <HomeCategories />
-      <HomeProduct data={data?.data} />
+      {data?.data && <HomeProduct data={data?.data} />}
     </>
   );
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/products");
+  /*  if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  } */
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
   const data = await res.json();
   return {
     props: {

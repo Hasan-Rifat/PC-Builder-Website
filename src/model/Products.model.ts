@@ -3,7 +3,6 @@ import mongoose, { model, models } from "mongoose";
 
 // Define the schema
 const productSchema = new mongoose.Schema<IProducts, ProductsModel>({
-  id: Number,
   image: String,
   productName: String,
   category: String,
