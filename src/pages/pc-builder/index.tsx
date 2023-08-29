@@ -111,9 +111,9 @@ PcBuilder.getLayout = function getLayout(page: React.ReactNode) {
 export async function getServerSideProps() {
   // Fetch data from external API
   try {
-    if (typeof window === "undefined") {
+    /*     if (typeof window === "undefined") {
       return { props: { data: [] } };
-    }
+    } */
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/categories`);
     const data = await res.json();
     // Pass data to the page via props
