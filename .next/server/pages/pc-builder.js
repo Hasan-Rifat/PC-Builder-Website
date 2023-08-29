@@ -223,15 +223,10 @@ PcBuilder.getLayout = function getLayout(page) {
 };
 async function getServerSideProps() {
     // Fetch data from external API
-    try {
-        if (true) {
-            return {
-                props: {
-                    data: []
-                }
-            };
-        }
-        const res = await fetch(`${"https://pc-builder-website-kappa.vercel.app/"}/api/categories`);
+    /*  if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  } */ try {
+        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/categories`);
         const data = await res.json();
         // Pass data to the page via props
         return {

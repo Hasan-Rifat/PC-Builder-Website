@@ -16,7 +16,6 @@ type HomeProps = {
 const Home: React.FC<HomeProps> & {
   getLayout(page: React.ReactNode): JSX.Element;
 } = ({ data }) => {
-  console.log(`${process.env.NEXT_PUBLIC_URL}/api/products`);
   return (
     <>
       <Banner />
@@ -27,7 +26,7 @@ const Home: React.FC<HomeProps> & {
 };
 
 export async function getStaticProps() {
-  /*  if (typeof window === "undefined") {
+  /*   if (typeof window === "undefined") {
     return { props: { data: [] } };
   } */
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);

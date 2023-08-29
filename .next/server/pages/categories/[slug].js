@@ -82,7 +82,7 @@ const Categories = ({ data, slug })=>{
 };
 const getStaticPaths = async ()=>{
     try {
-        const res = await fetch(`${"https://pc-builder-website-kappa.vercel.app/"}/api/products}`);
+        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products}`);
         const data = await res.json();
         if (!Array.isArray(data)) {
             // Check if data is not an array
@@ -108,7 +108,7 @@ const getStaticPaths = async ()=>{
 const getStaticProps = async (context)=>{
     try {
         const { params } = context;
-        const res = await fetch(`${"https://pc-builder-website-kappa.vercel.app/"}/api/products?category=${params.slug}` // Use 'id' as the parameter
+        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products?category=${params.slug}` // Use 'id' as the parameter
         );
         const data = await res.json();
         return {

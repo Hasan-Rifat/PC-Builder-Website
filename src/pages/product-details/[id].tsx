@@ -43,10 +43,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context: { params: { id: string } }) => {
+  /*  if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  } */
   try {
-    /*     if (typeof window === "undefined") {
-      return { props: { data: [] } };
-    } */
     const { params } = context;
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/api/products/${params.id}` // Use 'id' as the parameter

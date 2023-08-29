@@ -313,17 +313,12 @@ PcBuilderItems.getLayout = function getLayout(page) {
     });
 };
 async function getServerSideProps(context) {
-    if (true) {
-        return {
-            props: {
-                data: []
-            }
-        };
-    }
-    // Fetch data from external API
+    /*  if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  } */ // Fetch data from external API
     try {
         const { slug } = context.params;
-        const res = await fetch(`${"https://pc-builder-website-kappa.vercel.app/"}/api/products?category=${slug}`);
+        const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products?category=${slug}`);
         const data = await res.json();
         // Pass data to the page via props
         return {

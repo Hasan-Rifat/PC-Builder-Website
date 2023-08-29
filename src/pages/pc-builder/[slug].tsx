@@ -32,7 +32,7 @@ PcBuilderItems.getLayout = function getLayout(page: React.ReactNode) {
 export async function getServerSideProps(context: {
   params: { slug: string };
 }) {
-  /*   if (typeof window === "undefined") {
+ /*  if (typeof window === "undefined") {
     return { props: { data: [] } };
   } */
   // Fetch data from external API

@@ -2,9 +2,9 @@
   "version": 1,
   "functions": {
     "/categories/[slug]": {},
-    "/pc-builder/[slug]": {},
     "/": {},
     "/pc-builder": {},
+    "/pc-builder/[slug]": {},
     "/product-details/[id]": {}
   }
 }

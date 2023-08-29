@@ -162,7 +162,7 @@ const Header = ()=>{
                                 children: /*#__PURE__*/ jsx_runtime.jsx("button", {
                                     className: "uppercase",
                                     onClick: ()=>(0,react_.signIn)("github", {
-                                            callbackUrl: `${"https://pc-builder-website-kappa.vercel.app/"}`
+                                            callbackUrl: `${"https://pc-builder-website-server.vercel.app"}`
                                         }),
                                     children: "Login"
                                 })

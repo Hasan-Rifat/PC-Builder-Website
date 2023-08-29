@@ -206,7 +206,6 @@ var MainLayout = __webpack_require__(3494);
 
 
 const Home = ({ data })=>{
-    console.log(`${"https://pc-builder-website-kappa.vercel.app/"}/api/products`);
     return /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime.jsx(Home_Banner, {}),
@@ -218,14 +217,9 @@ const Home = ({ data })=>{
     });
 };
 async function getStaticProps() {
-    if (true) {
-        return {
-            props: {
-                data: []
-            }
-        };
-    }
-    const res = await fetch(`${"https://pc-builder-website-kappa.vercel.app/"}/api/products`);
+    /*   if (typeof window === "undefined") {
+    return { props: { data: [] } };
+  } */ const res = await fetch(`${"https://pc-builder-website-server.vercel.app"}/api/products`);
     const data = await res.json();
     return {
         props: {
