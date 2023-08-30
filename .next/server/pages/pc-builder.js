@@ -189,7 +189,7 @@ const PcBuilder = ({ data })=>{
                             ]
                         }, item._id)),
                     /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "flex gap-5 items-center ",
+                        className: "flex md:flex-row flex-col gap-5 items-center ",
                         children: [
                             /*#__PURE__*/ jsx_runtime.jsx("div", {
                                 className: "leading-0  ",

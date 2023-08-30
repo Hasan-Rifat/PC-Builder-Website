@@ -82,7 +82,7 @@ const PcBuilder: React.FC<PcBuilderProps> & {
               </div>
             ))}
 
-            <div className="flex gap-5 items-center ">
+            <div className="flex md:flex-row flex-col gap-5 items-center ">
               <div className="leading-0  ">
                 <span className="text-gray-800 px-6 rounded-2xl bg-success text-xl py-1">
                   total price : ${total}

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/RoaJe4umz3goXlSH2ufIY/_buildManifest.js",
-    "static/RoaJe4umz3goXlSH2ufIY/_ssgManifest.js"
+    "static/LokS9VIqlxghAFkqAyREM/_buildManifest.js",
+    "static/LokS9VIqlxghAFkqAyREM/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -51,7 +51,7 @@
       "static/chunks/d7eeaac4-083713af94ef6c9a.js",
       "static/chunks/865-27d49f57b9e5f7a7.js",
       "static/chunks/494-650a3671e8367558.js",
-      "static/chunks/pages/pc-builder-f392e6b31f9a1d02.js"
+      "static/chunks/pages/pc-builder-4bb962ffb7c916c9.js"
     ],
     "/pc-builder/[slug]": [
       "static/chunks/webpack-ee7e63bc15b31913.js",
