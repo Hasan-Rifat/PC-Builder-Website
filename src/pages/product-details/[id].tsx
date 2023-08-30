@@ -14,7 +14,7 @@ const ProductDetailsPage: React.FC<ProductDetailsPageProps> & {
 } = ({ data, id }) => {
   return (
     <section className="bg-[#111827]">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto px-5">
         <div className="">{data && <ProductDetails data={data} id={id} />}</div>
       </div>
     </section>

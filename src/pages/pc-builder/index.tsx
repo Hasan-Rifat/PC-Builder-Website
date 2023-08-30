@@ -29,7 +29,7 @@ const PcBuilder: React.FC<PcBuilderProps> & {
 
   return (
     <section className="bg-[#111827]">
-      <div className="max-w-screen-xl mx-auto py-20">
+      <div className="max-w-screen-xl mx-auto px-5 py-20">
         {data && (
           <div className="grid grid-cols-1  gap-6 w-full">
             {data?.data?.map((item) => (
@@ -110,7 +110,7 @@ PcBuilder.getLayout = function getLayout(page: React.ReactNode) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
- /*  if (typeof window === "undefined") {
+  /*  if (typeof window === "undefined") {
     return { props: { data: [] } };
   } */
   try {

@@ -296,7 +296,7 @@ var MainLayout = __webpack_require__(3494);
 const PcBuilderItems = ({ data, slug })=>{
     return /*#__PURE__*/ jsx_runtime.jsx("section", {
         children: /*#__PURE__*/ jsx_runtime.jsx("div", {
-            className: "max-w-screen-xl mx-auto",
+            className: "max-w-screen-xl mx-auto px-5",
             children: /*#__PURE__*/ jsx_runtime.jsx("div", {
                 className: "grid grid-cols-1 gap-5 mt-10  pb-20",
                 children: data?.data?.map((product)=>/*#__PURE__*/ jsx_runtime.jsx(Products_SelectProduct, {
@@ -611,6 +611,13 @@ module.exports = require("react");
 /***/ ((module) => {
 
 module.exports = require("react-dom");
+
+/***/ }),
+
+/***/ 9847:
+/***/ ((module) => {
+
+module.exports = require("react-icons/ai");
 
 /***/ }),
 

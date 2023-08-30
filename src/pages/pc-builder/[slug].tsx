@@ -14,7 +14,7 @@ const PcBuilderItems: React.FC<PcBuilderItemsProps> & {
 } = ({ data, slug }) => {
   return (
     <section>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto px-5">
         <div className="grid grid-cols-1 gap-5 mt-10  pb-20">
           {data?.data?.map((product) => (
             <SelectProduct slug={slug} key={product._id} product={product} />
@@ -32,7 +32,7 @@ PcBuilderItems.getLayout = function getLayout(page: React.ReactNode) {
 export async function getServerSideProps(context: {
   params: { slug: string };
 }) {
- /*  if (typeof window === "undefined") {
+  /*  if (typeof window === "undefined") {
     return { props: { data: [] } };
   } */
   // Fetch data from external API

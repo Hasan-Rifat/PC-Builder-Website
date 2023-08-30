@@ -69,9 +69,9 @@ const Categories = ({ data, slug })=>{
                 children: slug
             }),
             /*#__PURE__*/ jsx_runtime.jsx("div", {
-                className: "max-w-screen-xl mx-auto",
+                className: "max-w-screen-xl mx-auto px-5",
                 children: /*#__PURE__*/ jsx_runtime.jsx("div", {
-                    className: "grid grid-cols-3 gap-10  pb-20",
+                    className: "grid grid-cols-1 md:grid-cols-3 gap-10  pb-20",
                     children: data?.data?.map((product)=>/*#__PURE__*/ jsx_runtime.jsx(Product/* default */.Z, {
                             product: product
                         }, product._id))
@@ -378,6 +378,13 @@ module.exports = require("react");
 /***/ ((module) => {
 
 module.exports = require("react-dom");
+
+/***/ }),
+
+/***/ 9847:
+/***/ ((module) => {
+
+module.exports = require("react-icons/ai");
 
 /***/ }),
 

@@ -3,7 +3,7 @@ type FooterProps = {};
 const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-neutral text-neutral-content ">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto px-5">
         <div className="footer items-center p-4 ">
           <div className="items-center grid-flow-col">
             <svg

@@ -18,8 +18,8 @@ const Categories: React.FC<CategoriesProps> & {
   return (
     <section className="bg-[#111827]">
       <h3 className="text-3xl text-center text-white py-10">{slug}</h3>
-      <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-3 gap-10  pb-20">
+      <div className="max-w-screen-xl mx-auto px-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10  pb-20">
           {data?.data?.map((product) => (
             <Product key={product._id} product={product} />
           ))}

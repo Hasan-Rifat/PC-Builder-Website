@@ -133,7 +133,7 @@ const PcBuilder = ({ data })=>{
     return /*#__PURE__*/ jsx_runtime.jsx("section", {
         className: "bg-[#111827]",
         children: /*#__PURE__*/ jsx_runtime.jsx("div", {
-            className: "max-w-screen-xl mx-auto py-20",
+            className: "max-w-screen-xl mx-auto px-5 py-20",
             children: data && /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                 className: "grid grid-cols-1  gap-6 w-full",
                 children: [
@@ -510,6 +510,13 @@ module.exports = require("react");
 /***/ ((module) => {
 
 module.exports = require("react-dom");
+
+/***/ }),
+
+/***/ 9847:
+/***/ ((module) => {
+
+module.exports = require("react-icons/ai");
 
 /***/ }),
 

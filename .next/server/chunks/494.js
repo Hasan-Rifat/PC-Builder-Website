@@ -24,7 +24,13 @@ var next_link = __webpack_require__(1664);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "react-icons/bi"
 var bi_ = __webpack_require__(6652);
+// EXTERNAL MODULE: external "react-icons/ai"
+var ai_ = __webpack_require__(9847);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
 ;// CONCATENATED MODULE: ./src/components/shared/Header.tsx
+
+
 
 
 
@@ -32,6 +38,7 @@ var bi_ = __webpack_require__(6652);
 
 const Header = ()=>{
     const { data: session } = (0,react_.useSession)();
+    const [mobileMenu, setMobileMenu] = (0,external_react_.useState)(false);
     const data = [
         {
             id: 1,
@@ -64,7 +71,7 @@ const Header = ()=>{
     ];
     return /*#__PURE__*/ jsx_runtime.jsx("header", {
         children: /*#__PURE__*/ jsx_runtime.jsx("div", {
-            className: "max-w-screen-xl mx-auto",
+            className: "max-w-screen-xl mx-auto px-5",
             children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                 className: "navbar bg-base-100",
                 children: [
@@ -77,7 +84,7 @@ const Header = ()=>{
                         })
                     }),
                     /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "flex-none",
+                        className: "flex-none md:block hidden",
                         children: [
                             /*#__PURE__*/ jsx_runtime.jsx("div", {
                                 className: "dropdown dropdown-end mr-4",
@@ -111,7 +118,7 @@ const Header = ()=>{
                                         className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52",
                                         children: data.map((item)=>/*#__PURE__*/ jsx_runtime.jsx("li", {
                                                 children: /*#__PURE__*/ jsx_runtime.jsx((link_default()), {
-                                                    href: `/categories/${item.text.toLowerCase()}`,
+                                                    href: `/categories/${item.text}`,
                                                     children: /*#__PURE__*/ jsx_runtime.jsx("span", {
                                                         children: item.text
                                                     })
@@ -168,6 +175,118 @@ const Header = ()=>{
                                 })
                             })
                         ]
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "block md:hidden",
+                        children: [
+                            /*#__PURE__*/ jsx_runtime.jsx("label", {
+                                tabIndex: 0,
+                                className: "text-white",
+                                onClick: ()=>setMobileMenu(!mobileMenu),
+                                children: /*#__PURE__*/ jsx_runtime.jsx(ai_.AiOutlineMenuFold, {
+                                    size: 30
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime.jsx("div", {
+                                className: "relative",
+                                children: mobileMenu && /*#__PURE__*/ jsx_runtime.jsx("div", {
+                                    className: "absolute bg-indigo-800 rounded-lg p-5 -left-[137px] top-[17px]",
+                                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                        className: "flex flex-col gap-10 ",
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime.jsx("div", {
+                                                className: "dropdown dropdown-end mr-4",
+                                                children: /*#__PURE__*/ jsx_runtime.jsx("button", {
+                                                    className: "btn bg-white text-black hover:bg-white hover:text-black",
+                                                    children: /*#__PURE__*/ jsx_runtime.jsx((link_default()), {
+                                                        href: "/pc-builder",
+                                                        className: "uppercase",
+                                                        children: "PC Builder"
+                                                    })
+                                                })
+                                            }),
+                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                className: "dropdown dropdown-end mr-4 uppercase",
+                                                children: [
+                                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("label", {
+                                                        tabIndex: 0,
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime.jsx("h4", {
+                                                                children: "categories"
+                                                            }),
+                                                            " ",
+                                                            /*#__PURE__*/ jsx_runtime.jsx("span", {
+                                                                children: /*#__PURE__*/ jsx_runtime.jsx(bi_.BiSolidDownArrow, {})
+                                                            })
+                                                        ]
+                                                    }),
+                                                    /*#__PURE__*/ jsx_runtime.jsx("ul", {
+                                                        tabIndex: 0,
+                                                        className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52",
+                                                        children: data.map((item)=>/*#__PURE__*/ jsx_runtime.jsx("li", {
+                                                                children: /*#__PURE__*/ jsx_runtime.jsx((link_default()), {
+                                                                    href: `/categories/${item.text}`,
+                                                                    children: /*#__PURE__*/ jsx_runtime.jsx("span", {
+                                                                        children: item.text
+                                                                    })
+                                                                })
+                                                            }, item.id))
+                                                    })
+                                                ]
+                                            }),
+                                            session ? /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                className: "dropdown dropdown-end",
+                                                children: [
+                                                    /*#__PURE__*/ jsx_runtime.jsx("label", {
+                                                        tabIndex: 0,
+                                                        className: "btn btn-ghost btn-circle avatar",
+                                                        children: /*#__PURE__*/ jsx_runtime.jsx("div", {
+                                                            className: "w-10 rounded-full",
+                                                            children: /*#__PURE__*/ jsx_runtime.jsx((image_default()), {
+                                                                src: session?.user?.image || "",
+                                                                height: 50,
+                                                                width: 50,
+                                                                alt: "profile picture"
+                                                            })
+                                                        })
+                                                    }),
+                                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
+                                                        tabIndex: 0,
+                                                        className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52",
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime.jsx("li", {
+                                                                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("a", {
+                                                                    children: [
+                                                                        "Name: ",
+                                                                        session?.user?.name
+                                                                    ]
+                                                                })
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime.jsx("li", {
+                                                                children: /*#__PURE__*/ jsx_runtime.jsx("button", {
+                                                                    onClick: ()=>(0,react_.signOut)(),
+                                                                    children: "Logout"
+                                                                })
+                                                            })
+                                                        ]
+                                                    })
+                                                ]
+                                            }) : /*#__PURE__*/ jsx_runtime.jsx("div", {
+                                                className: "dropdown dropdown-end",
+                                                children: /*#__PURE__*/ jsx_runtime.jsx("button", {
+                                                    className: "uppercase",
+                                                    onClick: ()=>(0,react_.signIn)("github", {
+                                                            callbackUrl: `${"https://pc-builder-website-omega.vercel.app"}`
+                                                        }),
+                                                    children: "Login"
+                                                })
+                                            })
+                                        ]
+                                    })
+                                })
+                            })
+                        ]
                     })
                 ]
             })
@@ -182,7 +301,7 @@ const Footer = ()=>{
     return /*#__PURE__*/ jsx_runtime.jsx("footer", {
         className: "bg-neutral text-neutral-content ",
         children: /*#__PURE__*/ jsx_runtime.jsx("div", {
-            className: "max-w-screen-xl mx-auto",
+            className: "max-w-screen-xl mx-auto px-5",
             children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                 className: "footer items-center p-4 ",
                 children: [
